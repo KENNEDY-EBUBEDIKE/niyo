@@ -2,16 +2,16 @@
 
 
 # Run database migrations
-echo "Running migrations..."
-python manage.py makemigrations
+echo "Creating migrations..."
+python3 manage.py makemigrations
 
 # Run database migrations
-echo "Running migrations..."
-python manage.py migrate
+echo "Applying migrations..."
+python3 manage.py migrate
 
 # Collect static files
 echo "Collecting static files..."
-python manage.py collectstatic --noinput
+python3 manage.py collectstatic --noinput
 
 # Start Gunicorn for WSGI server
 echo "Starting Gunicorn..."
