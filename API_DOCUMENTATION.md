@@ -161,3 +161,151 @@ curl  -X DELETE \
     "message": "Task Deleted"
 }
 ```
+
+
+
+
+### User Auth Endpoints
+##### 1. Create a new user
+**Endpoint:** `POST /api/users/create/`
+
+**Description:** This endpoint allows to create a new user.
+
+**Request Body:**
+- `email` (required): email
+- `username` (required): Username
+- `password` (required): Password
+
+**Request:**
+```bash
+curl  -X POST \
+  'http://127.0.0.1:8000/api/users/create/` \
+  --header 'Content-Type: application/json'\
+  --data-raw '{
+    - "email": johndoe@mail.com
+    - "username": John-DOE
+    - "password": pass123
+}'
+
+```
+
+**Response:**
+```json
+{
+    "success": true,
+    "message": "OK"
+}
+```
+
+
+##### 2. Login
+**Endpoint:** `POST /api/users/login/`
+
+**Description:** This endpoint allows to create a user to login.
+
+**Request Body:**
+- `email` (required): email
+- `password` (required): Password
+
+**Request:**
+```bash
+curl  -X POST \
+  'http://127.0.0.1:8000/api/users/login/` \
+  --header 'Content-Type: application/json'\
+  --data-raw '{
+    - "email": johndoe@mail.com
+    - "password": pass123
+}'
+
+```
+
+**Response:**
+```json
+{
+    "refresh": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTcxNjIyMTM2NCwiaWF0IjoxNzE2MTM0OTY0LCJqdGkiOiJlZTMwZWNjOTIwN2I0YmVhYjU2NmYxNDhhYmZmMjg3OSIsInVzZXJfaWQiOjF9.rgdICeQasw_DS1gIXcmPdxXIXWfF0cK9YhylUmMaHVQ",
+    "access": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzE2MTUyOTY0LCJpYXQiOjE3MTYxMzQ5NjQsImp0aSI6ImY3YzBiZmVhOGQ3NDRkMTc5ZjVjMzE0NDA3NDE4YTliIiwidXNlcl9pZCI6MX0.cotBaVaxR5JY_wPrgPJTrIv5wwu6SYVEcjZI0nJNnk8"
+}
+```
+
+
+
+##### 3. Get all Users
+**Endpoint:** `GET /api/users/user/`
+
+**Description:** This endpoint allows the user to get all Users.
+
+**Request:**
+```bash
+curl  -X GET \
+  'http://127.0.0.1:8000/api/users/user/` \
+  --header 'Content-Type: application/json'\
+
+```
+
+**Response:**
+```json
+{
+    "success": true,
+    "message": "OK",
+    "data": [
+        {
+            "id": 2,
+            "email": "ken@mailinator.com",
+            "username": "EBUBEDIKE2"
+        },
+        {
+            "id": 1,
+            "email": "keny@gmail.com",
+            "username": "OKOSISI"
+        }
+    ]
+}
+```
+
+
+##### 3. Get the auth user's profile
+**Endpoint:** `GET /api/users/me/`
+
+**Description:** This endpoint allows the user to get his user profile.
+
+**Request:**
+```bash
+curl  -X GET \
+  'http://127.0.0.1:8000/api/users/me/` \
+  --header 'Content-Type: application/json'\
+
+```
+
+**Response:**
+```json
+{
+    "id": 1,
+    "email": "keny@gmail.com",
+    "username": "OKOSISI"
+}
+```
+
+##### 4. Update the User details
+**Endpoint:** `PATCH /api/users/edit/`
+
+**Description:** This endpoint allows the auth user to Update a his details.
+
+
+**Request:**
+```bash
+curl  -X PATCH \
+  'http://127.0.0.1:8000/api/users/edit/` \
+  --header 'Content-Type: application/json'\
+    --data-raw '{
+    - "username": Abobby
+}'
+
+```
+
+**Response:**
+```json
+{
+    "success": true,
+    "message": "User Data updated successfully"
+}
+```
