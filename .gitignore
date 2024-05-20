@@ -56,8 +56,10 @@ coverage.xml
 # Django stuff:
 *.log
 local_settings.py
-migrations/
 media/
+
+/migrations/*
+!/migrations/__init__.py
 
 # Flask stuff:
 instance/
@@ -119,3 +121,7 @@ dmypy.json
 
 # static Files
 static/
+
+#sqlite
+.sqlite
+.sqlite3
