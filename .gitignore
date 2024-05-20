@@ -57,8 +57,9 @@ coverage.xml
 *.log
 local_settings.py
 db.sqlite3
-#migrations/*
+migrations/*
 !migrations/__init__.py
+!migrations/.gitkeep
 media/
 
 # Flask stuff:
