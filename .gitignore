@@ -56,10 +56,10 @@ coverage.xml
 # Django stuff:
 *.log
 local_settings.py
+db.sqlite3
+migrations/*
+!migrations/__init__.py
 media/
-
-/migrations/*
-!/migrations/__init__.py
 
 # Flask stuff:
 instance/
@@ -91,6 +91,7 @@ celerybeat-schedule
 *.sage.py
 
 # Environments
+.env
 .venv
 env/
 venv/
@@ -121,7 +122,3 @@ dmypy.json
 
 # static Files
 static/
-
-#sqlite
-.sqlite
-.sqlite3
